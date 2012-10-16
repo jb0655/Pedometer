@@ -1,0 +1,3 @@
+This project is made to learn Objective-C MVC model application.
+The app works as a simple pedometer, with one unique behavior of 
+changing background image respond to the steps taken.
