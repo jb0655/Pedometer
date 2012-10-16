@@ -25,8 +25,17 @@
 
 - (void)viewDidLoad
 {
+    self.view.backgroundColor = [UIColor whiteColor];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIButton *back = [UIButton buttonWithType:UIButtonTypeCustom];
+    back.frame = CGRectMake(15.0, 410.0, 75, 40);
+    back.backgroundColor= [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.0];
+    [back setTitle:@"Back" forState:UIControlStateNormal];
+    [back setTitleColor:[UIColor colorWithRed:0.4 green:0.3 blue:0.2 alpha:10.0] forState:UIControlStateNormal];
+    back.titleLabel.font = [ UIFont fontWithName:@"Helvetica-Bold" size:24 ];
+    [back addTarget:self action:@selector(dismissInfoView) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:back];
 }
 
 - (void)viewDidUnload
@@ -35,4 +44,8 @@
     // Release any retained subviews of the main view.
 }
 
+- (void)dismissInfoView
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 @end

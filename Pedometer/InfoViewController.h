@@ -10,4 +10,6 @@
 
 @interface InfoViewController : UIViewController
 
+- (void)dismissInfoView;
+
 @end

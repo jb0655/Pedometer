@@ -14,7 +14,8 @@
 - (void)positionCheck;
 - (void)pictureDisplay:(int)imageNum;
 - (void)stepDisplay:(int)stemNum;
-- (void)resetButton:(UIButton *)sender;
-- (void)infoButton:(UIButton *)sender;
+- (void)resetAlert;
+- (void)resetStepDisplay:(NSInteger)buttonIndex;
+- (void)infoViewModal;
 
 @end

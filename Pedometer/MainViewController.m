@@ -45,6 +45,19 @@
     [self positionCheck];
     [self pictureDisplay:0];
     [self stepDisplay:0];
+    
+    //リセットボタン
+    UIButton *reset = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    reset.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+    [reset setTitle:@"clear" forState:UIControlStateNormal];
+    [reset addTarget:self action:@selector(resetAlert) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:reset];
+    //インフォビューボタン
+    UIButton *info = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    info.frame = CGRectMake(40.0, 0.0, 40.0, 40.0);
+    [info setTitle:@"info" forState:UIControlStateNormal];
+    [info addTarget:self action:@selector(infoViewModal) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:info];
 	
 }
 
@@ -114,18 +127,28 @@
         [self.view addSubview:self.stepLabel];
     }
     
-    self.stepLabel.text = [NSString stringWithFormat:@"%dstep", stemNum];
+    self.stepLabel.text = [NSString stringWithFormat:@"%dStep", stemNum];
+}
+- (void)resetAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Caution" message:@"reset number of step?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    [alert show];
 }
 
-- (void)resetButton:(UIButton *)sender
+- (void)resetStepDisplay:(NSInteger)buttonIndex
 {
-    [self.stepManager resetInterval];
-    [self stepDisplay:0];
+    if (buttonIndex == 1) {
+        [self.stepManager resetInterval];
+        [self stepDisplay:0];
+    }
 }
 
-- (void)infoButton:(UIButton *)sender
+- (void)infoViewModal
 {
-    
+    InfoViewController *infoView = [[[InfoViewController alloc] init]autorelease];
+    infoView.modalPresentationStyle = UIModalPresentationFullScreen;
+    infoView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentModalViewController:infoView animated:YES];
 }
 
 @end
