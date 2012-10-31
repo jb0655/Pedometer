@@ -15,7 +15,7 @@
 - (void)pictureDisplay:(int)imageNum;
 - (void)stepDisplay:(int)stemNum;
 - (void)resetAlert;
-- (void)resetStepDisplay:(NSInteger)buttonIndex;
+- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex;
 - (void)infoViewModal;
 
 @end

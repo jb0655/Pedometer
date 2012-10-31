@@ -10,7 +10,7 @@
 #import "InfoViewController.h"
 #import "StepManager.h"
 
-@interface MainViewController ()
+@interface MainViewController () <UIAlertViewDelegate>
 
 //@property宣言
 @property (nonatomic, retain) UILabel *stepLabel;                   //(View) 歩数表示ラベル
@@ -141,13 +141,17 @@
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Caution" message:@"reset number of step?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
     [alert show];
+    [alert release];
 }
 
-- (void)resetStepDisplay:(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
         [self.stepManager resetInterval];
         [self stepDisplay:0];
+        NSLog(@"1");
+    }else{
+        NSLog(@"0");
     }
 }
 
