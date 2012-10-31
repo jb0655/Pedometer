@@ -38,6 +38,14 @@
     return _motionManager;
 }
 
+- (StepManager *)stepManager
+{
+    if (!_stepManager) {
+        _stepManager = [[StepManager alloc] init];
+    }
+    return _stepManager;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
