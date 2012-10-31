@@ -27,6 +27,7 @@
 		03DBAC3716285E3E007AFF2A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DBAC3616285E3E007AFF2A /* CoreMotion.framework */; };
 		03DBAC4216286E2C007AFF2A /* StepManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DBAC4116286E2C007AFF2A /* StepManager.m */; };
 		03DBAC4516286F28007AFF2A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DBAC4416286F27007AFF2A /* InfoViewController.m */; };
+		03F0350D1640D11B00546CE7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F0350C1640D11B00546CE7 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		03DBAC4116286E2C007AFF2A /* StepManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepManager.m; sourceTree = "<group>"; };
 		03DBAC4316286F27007AFF2A /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		03DBAC4416286F27007AFF2A /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		03F0350C1640D11B00546CE7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		034D2052162D3A0300CB4149 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				03F0350C1640D11B00546CE7 /* Default-568h@2x.png */,
 				034D2053162D3A0300CB4149 /* 0.jpg */,
 				034D2054162D3A0300CB4149 /* 10.jpg */,
 				034D2055162D3A0300CB4149 /* 20.jpg */,
@@ -209,6 +212,7 @@
 				034D2064162D3A0300CB4149 /* 70.jpg in Resources */,
 				034D2065162D3A0300CB4149 /* 80.jpg in Resources */,
 				034D2066162D3A0300CB4149 /* 90.jpg in Resources */,
+				03F0350D1640D11B00546CE7 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
