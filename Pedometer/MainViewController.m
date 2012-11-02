@@ -149,9 +149,6 @@
     if (buttonIndex == 1) {
         [self.stepManager resetInterval];
         [self stepDisplay:0];
-        NSLog(@"1");
-    }else{
-        NSLog(@"0");
     }
 }
 
