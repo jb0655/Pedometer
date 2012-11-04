@@ -18,8 +18,11 @@ typedef struct{
 
 @interface StepManager : NSObject
 
+@property (nonatomic) int intervalStep, imageNum;
 @property (nonatomic) BOOL pictureChangeFlag;
 
+- (void)readUserDefaults;
+- (void)saveUserDefaults;
 - (int)countCheck:(accPos)accPos;
 - (int)imageCheck;
 - (void)resetInterval;

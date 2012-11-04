@@ -50,9 +50,10 @@
 {
     [super viewDidLoad];
     
+    [self.stepManager readUserDefaults];
     [self positionCheck];
-    [self pictureDisplay:0];
-    [self stepDisplay:0];
+    [self pictureDisplay:[self.stepManager imageNum]];
+    [self stepDisplay:[self.stepManager intervalStep]];
     
     //リセットボタン
     UIButton *reset = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -71,7 +72,10 @@
 
 - (void)viewDidUnload
 {
-    //メモリ解放
+    //NSUserDefaults保存
+    [self.stepManager saveUserDefaults];
+    
+    //メモリ解放準備
     [self setStepLabel:nil];
     [self setPictureView:nil];
     [self setMotionManager:nil];
@@ -80,6 +84,13 @@
     [super viewDidUnload];
     
 }
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

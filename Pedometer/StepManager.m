@@ -10,7 +10,7 @@
 
 @interface StepManager ()
 
-@property (nonatomic) int totalStep, intervalStep, imageNum;
+@property (nonatomic) int totalStep;
 
 @end
 
@@ -21,28 +21,38 @@
 @synthesize imageNum = _imageNum;
 @synthesize pictureChangeFlag = _pictureChangeFlag;
 
-- (int)totalStep
-{
-    if (!_totalStep) { _totalStep = 0; }
-    return _totalStep;
-}
-
-- (int)intervalStep
-{
-    if (!_intervalStep) { _intervalStep = 0; }
-    return _intervalStep;
-}
-
--(int)imageNum
-{
-    if (!_imageNum) { _imageNum = 0; }
-    return _imageNum;
-}
-
 - (BOOL)pictureChangeFlag
 {
     if (!_pictureChangeFlag) { _pictureChangeFlag = false; }
     return _pictureChangeFlag;
+}
+
+//NSUserDefaults読み込み
+- (void)readUserDefaults
+{
+    //初回のみ初期値設定
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
+    [defaults setObject:@"0" forKey:@"totalStep"];
+    [defaults setObject:@"0" forKey:@"intervalStep"];
+    [defaults setObject:@"0" forKey:@"imageNum"];
+    [userDefaults registerDefaults:defaults];
+    
+    //各種設定値読み込み
+    self.totalStep = [userDefaults integerForKey:@"totalStep"];
+    self.intervalStep = [userDefaults integerForKey:@"intervalStep"];
+    self.imageNum = [userDefaults integerForKey:@"imageNum"];
+}
+
+//NSUserDefaults保存
+- (void)saveUserDefaults
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setInteger:self.totalStep forKey:@"totalStep"];
+    [userDefaults setInteger:self.intervalStep forKey:@"intervalStep"];
+    [userDefaults setInteger:self.imageNum forKey:@"imageNum"];
+    
+    [userDefaults synchronize];
 }
 
 //歩数管理
