@@ -87,6 +87,12 @@
 
 - (void)dealloc
 {
+    //メモリ解放
+    [self.stepLabel release];
+    [self.pictureView release];
+    [self.motionManager release];
+    [self.stepManager release];
+    
     [super dealloc];
 }
 
