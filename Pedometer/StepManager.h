@@ -22,7 +22,6 @@ typedef struct{
 @property (nonatomic) BOOL pictureChangeFlag;
 
 - (void)readUserDefaults;
-- (void)saveUserDefaults;
 - (int)countCheck:(accPos)accPos;
 - (int)imageCheck;
 - (void)resetInterval;

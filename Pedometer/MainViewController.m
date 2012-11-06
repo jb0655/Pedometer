@@ -42,6 +42,7 @@
 {
     if (!_stepManager) {
         _stepManager = [[StepManager alloc] init];
+        [_stepManager readUserDefaults];
     }
     return _stepManager;
 }
@@ -50,7 +51,6 @@
 {
     [super viewDidLoad];
     
-    [self.stepManager readUserDefaults];
     [self positionCheck];
     [self pictureDisplay:[self.stepManager imageNum]];
     [self stepDisplay:[self.stepManager intervalStep]];
@@ -72,9 +72,6 @@
 
 - (void)viewDidUnload
 {
-    //NSUserDefaults保存
-    [self.stepManager saveUserDefaults];
-    
     //メモリ解放準備
     [self setStepLabel:nil];
     [self setPictureView:nil];
@@ -165,7 +162,7 @@
 {
     if (buttonIndex == 1) {
         [self.stepManager resetInterval];
-        [self stepDisplay:0];
+        [self stepDisplay:[self.stepManager intervalStep]];
     }
 }
 

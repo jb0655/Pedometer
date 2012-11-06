@@ -32,11 +32,6 @@
 {
     //初回のみ初期値設定
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
-    [defaults setObject:@"0" forKey:@"totalStep"];
-    [defaults setObject:@"0" forKey:@"intervalStep"];
-    [defaults setObject:@"0" forKey:@"imageNum"];
-    [userDefaults registerDefaults:defaults];
     
     //各種設定値読み込み
     self.totalStep = [userDefaults integerForKey:@"totalStep"];
@@ -69,6 +64,7 @@
             self.pictureChangeFlag = true;
         }
     };
+    [self saveUserDefaults];
     return self.intervalStep;
 }
 
@@ -82,5 +78,6 @@
 - (void)resetInterval
 {
     self.intervalStep = 0;
+    [self saveUserDefaults];
 }
 @end
